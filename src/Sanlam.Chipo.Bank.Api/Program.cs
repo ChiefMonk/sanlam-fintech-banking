@@ -7,7 +7,7 @@ using Sanlam.Chipo.Bank.Domain;
 using Sanlam.Chipo.Bank.Infrastructure;
 using Sanlam.Chipo.Bank.Infrastructure.Sql;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); 
 
 // Add services to the container.
 builder.Services.RegisterDomainDependencies(builder.Configuration);

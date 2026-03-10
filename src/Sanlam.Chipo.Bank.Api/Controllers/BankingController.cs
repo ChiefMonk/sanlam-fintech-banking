@@ -6,6 +6,9 @@ using System.Net.Mime;
 
 namespace Sanlam.Chipo.Bank.Api.Controllers;
 
+/// <summary>
+///   BankingController: A WebAPi for the bank service
+/// </summary>
 [ApiController]
 [Route("bank")]
 [Produces(MediaTypeNames.Application.Json)]
@@ -14,6 +17,11 @@ public class BankingController(
     ILogger<BankingController> logger,
         IBankingAccountService bankAccountService) : ControllerBase
 {
+    /// <summary>Accounts the withdraw.</summary>
+    /// <param name="withdrawalRequest">The withdrawal request.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     [HttpPut("withdraw", Name = "account-withdraw")]
     public async Task<ActionResult<ResponseAccountBalance>> AccountWithdraw(
         [FromBody] RequestAccountWithdrawal withdrawalRequest)
@@ -49,6 +57,11 @@ public class BankingController(
     }
 
 
+    /// <summary>Accounts the balance check.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     [HttpGet("balance/{accountNumber:long}", Name = "account-balance-balance")]
     public async Task<ActionResult<ResponseAccountBalance>> AccountBalanceCheck(
         [FromQuery] long accountNumber)
@@ -77,6 +90,11 @@ public class BankingController(
         return BadRequest(balanceResult.Error);
     }
 
+    /// <summary>Creates the cancellation token.</summary>
+    /// <param name="timeoutSecs">The timeout secs.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     private CancellationToken CreateCancellationToken(int timeoutSecs = 10)
     {
         var tokenSource = new CancellationTokenSource();

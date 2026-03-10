@@ -3,6 +3,9 @@ using System.Text.Json.Serialization;
 
 namespace Sanlam.Chipo.Bank.Domain.Result;
 
+/// <summary>
+///   Model for SystemActionError
+/// </summary>
 public sealed record SystemActionError(
     [property: JsonIgnore] int StatusCode,
     [property: JsonPropertyOrder(1),
@@ -12,11 +15,13 @@ public sealed record SystemActionError(
                JsonPropertyName("result_description")]
     string ResultDescription)
 {
+    /// <summary>The none</summary>
     public static readonly SystemActionError None = new SystemActionError(
         200,
         BankAccountActionResult.Successful,
         string.Empty);
 
+    /// <summary>The null value</summary>
     public static readonly SystemActionError NullValue = new SystemActionError(
         403,
         BankAccountActionResult.UnknownError,

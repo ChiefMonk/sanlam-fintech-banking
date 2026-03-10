@@ -4,6 +4,10 @@ using System.Text.Json.Serialization;
 
 namespace Sanlam.Chipo.Bank.Domain.Options;
 
+/// <summary>
+/// Config Options for RabbitMQ
+/// </summary>
+/// <seealso cref="System.IEquatable&lt;Sanlam.Chipo.Bank.Domain.Options.RabbitMqSettingOptions&gt;" />
 [ExcludeFromCodeCoverage]
 public record RabbitMqSettingOptions
 {
@@ -36,6 +40,13 @@ public record RabbitMqSettingOptions
     [JsonPropertyName("RoutingKeyOtherUsefulEvents"), Required]
     public required string RoutingKeyOtherUsefulEvents { get; init; }
 
+    /// <summary>
+    /// Returns true if ... is valid.
+    /// </summary>
+    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <returns>
+    ///   <c>true</c> if the specified throw exception is valid; otherwise, <c>false</c>.
+    /// </returns>
     public bool IsValid(bool throwException = true)
     {
         if (string.IsNullOrWhiteSpace(Hostname))

@@ -3,19 +3,20 @@ using Sanlam.Chipo.Bank.Domain.Messaging;
 
 namespace Sanlam.Chipo.Bank.Infrastructure.Messaging;
 
+/// <summary>
+///    Implementation for IKafkaPublisherService
+/// </summary>
 internal class RabbitMqPublisherService(
     ILogger<RabbitMqPublisherService> logger) : IRabbitMqPublisherService
 {
-    public Task PublishMessage(
-        string topicName, 
-        object message, 
-        CancellationToken cancellationToken)
-    {
-        logger.LogInformation("Publish Message to Kafka: {TopicName}", topicName);
-
-        return Task.FromResult(true);
-    }
-
+    /// <summary>Publishes the message.</summary>
+    /// <param name="exchangeName">Name of the exchange.</param>
+    /// <param name="routingKey">The routing key.</param>
+    /// <param name="message">The message.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public Task PublishMessage(
         string exchangeName, 
         string routingKey, 

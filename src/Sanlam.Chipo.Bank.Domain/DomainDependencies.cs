@@ -7,6 +7,12 @@ namespace Sanlam.Chipo.Bank.Domain;
 
 public static class DomainDependencies
 {
+    /// <summary>Registers the domain dependencies.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public static IServiceCollection RegisterDomainDependencies(
         this IServiceCollection services,
         IConfiguration configuration)
@@ -18,6 +24,9 @@ public static class DomainDependencies
         return services;
     }
 
+    /// <summary>Adds the configuration options.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
     private static void AddConfigOptions(
         this IServiceCollection services,
         IConfiguration configuration)

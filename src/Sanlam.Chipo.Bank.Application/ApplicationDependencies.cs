@@ -6,6 +6,12 @@ namespace Sanlam.Chipo.Bank.Application;
 
 public static class ApplicationDependencies
 {
+    /// <summary>Registers the application dependencies.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public static IServiceCollection RegisterApplicationDependencies(
         this IServiceCollection services,
         IConfiguration configuration)

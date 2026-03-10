@@ -1,8 +1,10 @@
 ﻿using Sanlam.Chipo.Bank.Domain.Enums;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Sanlam.Chipo.Bank.Application.Messages;
 
+/// <summary>
+///  Model for AccountWithdrawEvent
+/// </summary>
 public record ModelAccountWithdrawEvent(
     long AccountNumber,
     decimal Amount,

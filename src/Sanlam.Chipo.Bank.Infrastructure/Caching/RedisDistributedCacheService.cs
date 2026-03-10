@@ -15,6 +15,10 @@ using StackExchange.Redis;
 
 namespace Sanlam.Chipo.Bank.Infrastructure.Caching;
 
+/// <summary>
+/// Implementation for IDistributedCacheService
+/// </summary>
+/// <seealso cref="Sanlam.Chipo.Bank.Domain.Caching.IDistributedCacheService" />
 internal class RedisDistributedCacheService : IDistributedCacheService
 {
 	private const int CancelAfterSeconds = 2;
@@ -30,7 +34,13 @@ internal class RedisDistributedCacheService : IDistributedCacheService
 	private readonly JsonSerializerContext? _serializerContext;
 	private static readonly ConcurrentDictionary<Type, string> TypeNameCache = new();
 
-	public RedisDistributedCacheService(
+    /// <summary>Initializes a new instance of the <see cref="RedisDistributedCacheService" /> class.</summary>
+    /// <param name="logger">The logger.</param>
+    /// <param name="redisOptions">The redis options.</param>
+    /// <param name="cache">The cache.</param>
+    /// <param name="connection">The connection.</param>
+    /// <param name="serializerContext">The serializer context.</param>
+    public RedisDistributedCacheService(
 		ILogger<RedisDistributedCacheService> logger,
 		IOptions<RedisSettingOptions> redisOptions,
 		IDistributedCache cache,

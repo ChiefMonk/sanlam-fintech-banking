@@ -5,6 +5,10 @@ using System.Text.Json.Serialization;
 
 namespace Sanlam.Chipo.Bank.Domain.Options;
 
+/// <summary>
+///  Config Options for Redis
+/// </summary>
+/// <seealso cref="System.IEquatable&lt;Sanlam.Chipo.Bank.Domain.Options.RedisSettingOptions&gt;" />
 [ExcludeFromCodeCoverage]
 public record RedisSettingOptions
 {
@@ -16,6 +20,13 @@ public record RedisSettingOptions
     [JsonPropertyName("Options"), Required, ValidateObjectMembers]
     public required RedisSettings? Options { get; init; }
 
+    /// <summary>
+    /// Returns true if ... is valid.
+    /// </summary>
+    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <returns>
+    ///   <c>true</c> if the specified throw exception is valid; otherwise, <c>false</c>.
+    /// </returns>
     public bool IsValid(bool throwException = true)
     {
         if (string.IsNullOrWhiteSpace(ConnectionString))

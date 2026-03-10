@@ -8,6 +8,12 @@ namespace Sanlam.Chipo.Bank.Infrastructure.Sql;
 
 public static class InfrastructureSqlDependencies
 {
+    /// <summary>Registers the infrastructure SQL dependencies.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public static IServiceCollection RegisterInfrastructureSqlDependencies(
         this IServiceCollection services,
         IConfiguration configuration)

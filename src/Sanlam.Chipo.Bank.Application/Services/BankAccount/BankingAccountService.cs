@@ -11,6 +11,9 @@ using Sanlam.Chipo.Bank.Domain.Session;
 
 namespace Sanlam.Chipo.Bank.Application.Services.BankAccount;
 
+/// <summary>
+///   An implementation of the IBankingAccountService
+/// </summary>
 internal sealed class BankingAccountService(
     IUserSessionContext sessionContext,
     IDistributedLockService distributedLockService,
@@ -21,6 +24,14 @@ internal sealed class BankingAccountService(
     IBankAccountRepository bankAccountRepository) : IBankingAccountService
 {
 
+    /// <summary>Withdraws the asynchronous.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <param name="amount">The amount.</param>
+    /// <param name="releaseLock">if set to <c>true</c> [release lock].</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public async ValueTask<SystemActionResult<ModelAccountWithdraw>> WithdrawAsync(
         long accountNumber,
         decimal amount,
@@ -135,6 +146,13 @@ internal sealed class BankingAccountService(
 
     }
 
+    /// <summary>Gets the balance asynchronous.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <param name="releaseLock">if set to <c>true</c> [release lock].</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public async ValueTask<SystemActionResult<ModelAccountBalance>> GetBalanceAsync(
         long accountNumber,
         bool releaseLock = true,
@@ -187,6 +205,14 @@ internal sealed class BankingAccountService(
         }
     }
 
+    /// <summary>Processes the response asynchronous.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <param name="amount">The amount.</param>
+    /// <param name="error">The error.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     private async Task<SystemActionResult<ModelAccountWithdraw>> ProcessResponseAsync(
         long accountNumber,
         decimal amount,
@@ -214,6 +240,14 @@ internal sealed class BankingAccountService(
         return SystemActionResult.Failure<ModelAccountWithdraw>(error);
     }
 
+    /// <summary>Processes the response asynchronous.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <param name="amount">The amount.</param>
+    /// <param name="withdraw">The withdraw.</param>
+    /// <param name="cancellationToken">The cancellation token.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     private async Task<SystemActionResult<ModelAccountWithdraw>> ProcessResponseAsync(
         long accountNumber,
         decimal amount,
@@ -236,11 +270,22 @@ internal sealed class BankingAccountService(
         return SystemActionResult.Success(withdraw);
     }
 
+    /// <summary>Somes the withdraw validation.</summary>
+    /// <param name="balance">The balance.</param>
+    /// <param name="amount">The amount.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     private bool SomeWithdrawValidation(ModelAccountBalance balance, decimal amount)
     {
         return true;
     }
 
+    /// <summary>Creates the account lock key.</summary>
+    /// <param name="accountNumber">The account number.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     private static string CreateAccountLockKey(long accountNumber)
     {
        return $"lock-{accountNumber}";

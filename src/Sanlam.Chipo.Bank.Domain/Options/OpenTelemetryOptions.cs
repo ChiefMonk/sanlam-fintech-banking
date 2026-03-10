@@ -4,6 +4,10 @@ using System.Text.Json.Serialization;
 
 namespace Sanlam.Chipo.Bank.Domain.Options;
 
+/// <summary>
+/// Config Options for OpenTelemetry
+/// </summary>
+/// <seealso cref="System.IEquatable&lt;Sanlam.Chipo.Bank.Domain.Options.OpenTelemetryOptions&gt;" />
 [ExcludeFromCodeCoverage]
 public record OpenTelemetryOptions
 {
@@ -21,6 +25,13 @@ public record OpenTelemetryOptions
     [JsonPropertyName("SamplingRatio"), Required]
     public required double SamplingRatio { get; init; }
 
+    /// <summary>
+    /// Returns true if ... is valid.
+    /// </summary>
+    /// <param name="throwException">if set to <c>true</c> [throw exception].</param>
+    /// <returns>
+    ///   <c>true</c> if the specified throw exception is valid; otherwise, <c>false</c>.
+    /// </returns>
     public bool IsValid(bool throwException = true)
     {
         if (string.IsNullOrWhiteSpace(Url))

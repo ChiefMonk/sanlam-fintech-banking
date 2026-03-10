@@ -14,6 +14,12 @@ namespace Sanlam.Chipo.Bank.Infrastructure;
 
 public static class InfrastructureDependencies
 {
+    /// <summary>Registers the infrastructure dependencies.</summary>
+    /// <param name="services">The services.</param>
+    /// <param name="configuration">The configuration.</param>
+    /// <returns>
+    ///   <br />
+    /// </returns>
     public static IServiceCollection RegisterInfrastructureDependencies(
         this IServiceCollection services,
         IConfiguration configuration)
