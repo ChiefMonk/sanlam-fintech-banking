@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/infra/" />
+  <Folder Name="/src/">
+    <Project Path="src/Sanlam.Chipo.Bank.Api/Sanlam.Chipo.Bank.Api.csproj" />
+    <Project Path="src/Sanlam.Chipo.Bank.Application/Sanlam.Chipo.Bank.Application.csproj" />
+    <Project Path="src/Sanlam.Chipo.Bank.Domain/Sanlam.Chipo.Bank.Domain.csproj" />
+    <Project Path="src/Sanlam.Chipo.Bank.Infrastructure.Sql/Sanlam.Chipo.Bank.Infrastructure.Sql.csproj" />
+    <Project Path="src/Sanlam.Chipo.Bank.Infrastructure/Sanlam.Chipo.Bank.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Sanlam.Chipo.Bank.ArchitectureTests/Sanlam.Chipo.Bank.ArchitectureTests.csproj" />
+    <Project Path="test/Sanlam.Chipo.Bank.IntegrationTests/Sanlam.Chipo.Bank.IntegrationTests.csproj" />
+    <Project Path="test/Sanlam.Chipo.Bank.LoadTests/Sanlam.Chipo.Bank.LoadTests.csproj" />
+    <Project Path="test/Sanlam.Chipo.Bank.UnitTests/Sanlam.Chipo.Bank.UnitTests.csproj" />
+  </Folder>
+</Solution>
